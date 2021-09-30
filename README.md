@@ -1,2 +1,2 @@
 # Ap-compsci
-Ruby and Josh set out on an adventure to learn programming. 
+Me and my partners set out on an adventure to learn programming. 
