@@ -1,0 +1,23 @@
+public class Greet {
+    public static void main( String[] args ) {
+      BigSib richard = new BigSib();
+      richard.setHelloMsg("Word up ");
+      greeting = richard.greet("freshman");
+   } //end main()
+  } //end Greet
+
+//creation of new class called Richard and new method called setHelloMsg
+public class BigSib {
+    String helloMsg;
+
+    public static void setHelloMsg(String greeting) {
+        helloMsg = greeting; //new method prints out input string
+    }
+
+    public static void greet(String name) {
+        System.out.println(helloMsg);
+        System.out.println("Hey ya Kong Fooey");
+        System.out.println("Sup mom");
+    } //end of greeting method
+}
+ 
