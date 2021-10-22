@@ -1,0 +1,41 @@
+/*
+Triumphant Triumvirate: Salaj Rijal: George, Ariel Fuchs: Skelly Ducky, Ben Belotser: TwoFace
+APCS
+HW 20 -- External Audit
+2021-10-19
+DISCO:
+
+
+*/
+
+public class Teller {
+        public static void main(String[] args){
+        //Test for methods
+                BankAccount Whitehat = new BankAccount(123456789, (short)4321);
+                System.out.println( Whitehat.toString() );
+        System.out.println( Whitehat.setName("Triumvirate") );
+        System.out.println( Whitehat.setPasswd("123456789") );
+        System.out.println( Whitehat.setPin((short) 1234) );
+
+
+        //Attempt to breaking
+        BankAccount Blackhat = new BankAccount(987654321, (short)6666);
+
+        //If we use setPin() and purposely use wrong parameter, then we will know the pin is 9999 (security risk)
+        System.out.println( Blackhat.setPin( (short)12 ) );
+        System.out.println( Blackhat.toString() );
+
+        //If we input negative parameter in withdraw() we get free money
+        System.out.println( Blackhat.withdraw(-10000) );
+        System.out.println( Blackhat.toString() );
+
+        //We can also lose money when we deposit
+        Blackhat.deposit(-10000);
+        System.out.println( Blackhat.toString() );
+
+        //Also there
+
+
+
+        }//End of Main
+} //End of Class
