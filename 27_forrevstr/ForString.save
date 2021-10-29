@@ -1,0 +1,7 @@
+//Tests for reverseR
+      System.out.println( "Tests for reverseR():");
+      System.out.println( reverseR("A") + "...expecting A");
+      System.out.println( reverseR("hey dawg") + "...expecting gwad yeh");    
+      System.out.println( reverseR("pepsi") + "...expecting ispep");
+      System.out.println( reverseR("wsg") + "...expecting gsw");
+      System.out.println( reverseR("mi casa") + "...expecting asac im\n"); 
