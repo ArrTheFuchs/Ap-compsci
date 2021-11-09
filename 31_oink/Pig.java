@@ -8,23 +8,27 @@ Imetay Entspay: 1 urhoay
 (CHECK BOTTOM IF YOU NEED ENGLISH)
 
 DISCO:
--ethay initializatinoyay ofyay owelsvay akesmay ouryay iveslay easieryay eway ancay eckchay ifyay ayay etterlay isyay 
-in ethay ingstray otay etermineday ifyay ityay isyay ayay owelvay oryay otnay 
+-ethay initializatinoyay ofyay owelsvay akesmay ouryay iveslay easieryay eway ancay eckchay ifyay ayay etterlay isyay
+in ethay ingstray otay etermineday ifyay ityay isyay ayay owelvay oryay otnay
 -ouyay ancay useyay ethodsmay atthay ouyay eviouslypray ademay otay elphay akemay otheryay ethodsmay (division ofyay labor)
 -
 
 QCC:
--ouldshay eway useyay tolowercase() insideyay omesay ofyay ethay ethodsmay ? ifyay osay , ichwhay onesyay ? 
--isyay ethay ortcutshay eway usedyay orfay asavowelhay appropriateyay ? 
--ancay eway avehay integratedyay ethay ethodsmay oremay ? 
+-ouldshay eway useyay tolowercase() insideyay omesay ofyay ethay ethodsmay ? ifyay osay , ichwhay onesyay ?
+-isyay ethay ortcutshay eway usedyay orfay asavowelhay appropriateyay ?
+-ancay eway avehay integratedyay ethay ethodsmay oremay ?
 
 
 */
 public class Pig
 {
-  private static final String VOWELS = "aeiou";
+  private static final String VOWELS = "AEIOUaeiou";
 
-  public static boolean hasA( String w, String letter ) 
+  private static final Stirng CAPITALS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  private static final String PUNCTUATION = ",."
+
+  public static boolean hasA( String w, String letter )
   {
       /**
        *eckchay ifyay ingstray etterlay isyay inyay ingstray w
@@ -37,7 +41,7 @@ public class Pig
       return false;
   }
 
-  public static boolean isAVowel( String letter ) 
+  public static boolean isAVowel( String letter )
   {
       /**
        *eckchay ifyay etterlay isyay ayay owelvay
@@ -46,7 +50,7 @@ public class Pig
       return hasA(VOWELS, letter);
   }
 
-  public static int countVowels( String w ) 
+  public static int countVowels( String w )
   {
       /**
        *ountcay owhay anymay owelsvay areyay esentpray inyay ingstray w
@@ -60,7 +64,7 @@ public class Pig
     return count;
   }
 
-  public static boolean hasAVowel( String w ) 
+  public static boolean hasAVowel( String w )
   {
     /**
     *eckchay ifyay ingstray w ashay ayay owelvay
@@ -68,7 +72,7 @@ public class Pig
     return countVowels(w) != 0;
   }
 
-  public static String allVowels( String w ) 
+  public static String allVowels( String w )
   {
     /**
      *eckschay ifyay allyay etterslay inyay ingstray w areyay owelsvay
@@ -82,8 +86,59 @@ public class Pig
     }
     return result;
   }
-  
-  public static void main( String[] args ) 
+
+  /**
+   String firstVowel(String) -- returns first vowel in a String
+   pre:  w != null
+   post: firstVowel("") --> ""
+   firstVowel("zzz") --> ""
+   firstVowel("meatball") --> "e"
+   **/
+ public static String firstVowel( String w ) {
+
+   String ans = "";
+
+   if ( hasAVowel(w) ) //Q: Why this necess?
+     ans = allVowels(w).substring(0,1);
+
+   return ans;
+ }
+
+
+ /**
+   boolean beginsWithVowel(String) -- tells whether a String begins with a vowel
+   pre:  w != null and w.length() > 0
+   post: beginsWithVowel("apple")  --> true
+   beginsWithVowel("strong") --> false
+   **/
+ public static boolean beginsWithVowel( String w ) {
+   return isAVowel( w.substring(0,1) );
+ }
+
+
+ /**
+   String engToPig(String) -- converts an English word to Pig Latin
+   pre:  w.length() > 0
+   post: engToPig("apple")  --> "appleway"
+   engToPig("strong") --> "ongstray"
+   engToPig("java")   --> "avajay"
+   **/
+ public static String engToPig( String w ) {
+
+   String ans = "";
+
+   if ( beginsWithVowel(w) )
+     ans = w + "way";
+
+   else {
+     int vPos = w.indexOf( firstVowel(w) );
+     ans = w.substring(vPos) + w.substring(0,vPos) + "ay";
+   }
+
+   return ans;
+ }
+
+  public static void main( String[] args )
   {
       //hasA() tests
       System.out.println( "Tests for hasA(): ");
@@ -127,4 +182,3 @@ QCC:
 -should we use toLowerCase() inside some of the methods? if so, which ones?
 -is the shortcut we used for hasAVowel Appropriate?
 -can we have integrated the methods more?*/
-
