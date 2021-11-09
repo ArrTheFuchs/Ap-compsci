@@ -8,13 +8,13 @@
  * a Pig Latin translator
  ***/
 
-public class Pig2{
+public class Pig{
 
     private static final String VOWELS = "aeiouAEIOU";
 
     private static final String CAPITALS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    private static final String PUNCTUATION = ",.;?!:'";
+    private static final String PUNCTUATION = ",.;?!:";
 
     /*
      boolean hasA(String,String) -- checks for a letter in a String
@@ -25,12 +25,12 @@ public class Pig2{
     public static boolean hasA( String w, String letter ) {
 
         return w.indexOf(letter) != -1;
-  
+
       /* equiv code, wo using indexOf()...
          boolean ans = false;
-  
+
          for( int i = 0; i < w.length(); i++ ) {
-  
+
          if ( w.substring(i,i+1).equals(letter) ) {
          ans = true;
          //Q: is there a more efficient way?
@@ -45,12 +45,12 @@ public class Pig2{
      boolean isAVowel(String) -- tells whether a letter is a vowel
      precondition: letter.length() == 1
      **/
-    public static boolean isAVowel( String letter ) {
-        return VOWELS.indexOf( letter ) != -1;
-    }
+     public static boolean isAVowel( String letter ) {
+       return VOWELS.indexOf( letter ) != -1;
+     }
 
     //tells wether a symbol is a punctuation mark
-    public static boolean isAPunctuation( String letter ) {
+    public static boolean isPunctuation( String letter ) {
         return PUNCTUATION.indexOf( letter ) != -1;
     }
 
@@ -62,12 +62,12 @@ public class Pig2{
     public static int countVowels( String w ) {
 
         return allVowels(w).length();
-  
+
       /* long version using for
          int numVowels = 0; //init vowels counter var
          //must touch each letter in word, so use FOR
          for( int i = 0; i < w.length(); i++ ) {
-  
+
          if ( isAVowel( w.substring(i,i+1) ) )
          numVowels++;
          }
@@ -123,6 +123,7 @@ public class Pig2{
     }
 
 
+
     /*
      boolean beginsWithVowel(String) -- tells whether a String begins with a vowel
      pre:  w != null and w.length() > 0
@@ -141,14 +142,22 @@ public class Pig2{
         return w;
     }
 
-    public static boolean isPunctuation( String w ) {
-        return PUNCTUATION.indexOf(w) >= 0;
+
+    public static String recapitalize( String w ) {
+        for (int i = 0; i < CAPITALS.length(); i ++) {
+            if (CAPITALS.substring(i, i + 1) == w.substring(0, 1)) {
+                return w;
+            }
+        }
+        w = w.toLowerCase();
+        w = w.substring(0, 1).toUpperCase() + w.substring(1);
+        return w;
     }
 
     /*
      String engToPig(String) -- converts an English word to Pig Latin
      pre:  w.length() > 0
-     post: engToPig("apple")  --> "appleway"
+     post: engToPig("apple")  --> "appleway"Pig2
      engToPig("strong") --> "ongstray"
      engToPig("java")   --> "avajay"
      **/
@@ -177,7 +186,7 @@ public class Pig2{
 
         // Translate the part of w without the "punctuation tail"
         if(p > 0)
-            res = Pig2.engToPig(w.substring(0, p));
+            res = Pig.engToPig(w.substring(0, p));
 
         // Add "punctuation tail" back
         if(p < w.length())
@@ -186,18 +195,6 @@ public class Pig2{
         return res;
     }
 
-
-
-        public static String recapitalize( String w ) {
-        for (int i = 0; i < CAPITALS.length(); i ++) {
-            if (CAPITALS.substring(i, i + 1) == w.substring(0, 1)) {
-                return w;
-            }
-        }
-        w = w.toLowerCase();
-        w = w.substring(0, 1).toUpperCase() + w.substring(1);
-        return w;
-    }
 
 
     public static void main( String[] args ) {
