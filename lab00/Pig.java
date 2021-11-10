@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 public class Pig {
 
-    private static final String VOWELS = "aeiouyAEIOUY";
+    private static final String VOWELS = "aeiouAEIOU";
 
     private static final String CAPITALS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -88,6 +88,8 @@ public class Pig {
      **/
     public static boolean hasAVowel(String w) {
         return allVowels(w).length() >= 0;
+
+
     }
 
 
@@ -266,5 +268,6 @@ public class Pig {
         while (sc.hasNext()) {
             System.out.println(translateSentence(sc.next()));
         }
+
     }//end main()
 }
