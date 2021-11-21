@@ -1,0 +1,17 @@
+Compile-time errors- prevent the program from compiling aka syntax errors
+Run-time errors- errors that are produced when the program runs.
+Logic errors- cause the program to do something other than what you wanted
+One error can make 100 error messages
+Start from the beginning when debugging
+The error will not always be where the compiler says it is
+Debugging by bisection- last resort
+Solutions offered by the compiler are not always accurate
+If a program hangs then it has most likely entered an infinite loop
+Add occasional print statements to visualize the flow of code.
+The compiler will not tell you where logic errors are located
+ArrayIndexOutOfBoudnsException means that you tried to access a point in the array that is non-existent
+When faced with compile-time errors make sure that there is
+Proper invocation of methods
+Correct type matching
+Proper opening and closing [], “” , (), and {}
+
