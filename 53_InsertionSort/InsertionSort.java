@@ -139,7 +139,7 @@ public class InsertionSort
     
 
       System.out.println( "*** Testing non-void version... *** " );
-      ArrayList glen = new ArrayList<Integer>();
+      glen = new ArrayList<Integer>();
       glen.add(7);
       glen.add(1);
       glen.add(5);
@@ -151,7 +151,7 @@ public class InsertionSort
       + glenSorted );
       System.out.println( "\nArrayList glen after sorting:\n" + glen );
 
-      ArrayList coco = populate( 10, 1, 1000 );
+      coco = populate( 10, 1, 1000 );
       System.out.println( "\nArrayList coco before sorting:\n" + coco );
       ArrayList cocoSorted = insertionSort( coco );
       System.out.println( "\nsorted version of ArrayList coco:\n"
