@@ -50,6 +50,7 @@
    **/
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class StatPrinter
@@ -67,6 +68,8 @@ public class StatPrinter
   public StatPrinter( ArrayList <Integer> data )
   {
     /* YOUR IMPLEMENTATION HERE */
+    _frequency = new ArrayList <Integer> (max(data) + 1);
+
   }
 
 
@@ -76,6 +79,8 @@ public class StatPrinter
   public Integer max( ArrayList <Integer> data )
   {
     /* YOUR IMPLEMENTATION HERE */
+      bubble(data);
+      return data.get(data.size() - 1);
   }
 
 
@@ -92,16 +97,17 @@ public class StatPrinter
   public boolean isLocalMode( int i )
   {
     /* YOUR IMPLEMENTATION HERE */
+    return true;
   }
 
 
   //*************** QUESTION 04 **************************
   //postcond: returns list of modes in _frequency
-  public ArrayList<Integer> getLocalModes()
-  {
-    /* YOUR IMPLEMENTATION HERE */
-
-  }
+  // public ArrayList<Integer> getLocalModes()
+  // {
+  //   /* YOUR IMPLEMENTATION HERE */
+  //
+  // }
 
 
   //*************** QUESTION 05 **************************
@@ -110,5 +116,32 @@ public class StatPrinter
   {
     /* YOUR IMPLEMENTATION HERE */
   }
+
+//Bubble sort
+  public static void bubble( ArrayList<Integer> data )
+  {
+    //for each pass do this
+    //we loop size of array - 1 times
+    for( int i = 0; i < data.size()-1; i++){
+      //for each comparison do this
+      //we loop less and less for each pass
+      for( int x = data.size()-1; x > i; x--){
+        Integer left = data.get(x-1);
+        Integer right = data.get(x);
+        //check right is greater than or = to left
+        if( right.compareTo(left) >= 0 ){
+          continue;
+        }
+        swap(data, x, x-1);
+      }
+    }
+  }
+
+  public static void swap(ArrayList swapee, int i1, int i2){
+    Object temp = swapee.get(i1);
+    swapee.set(i1, swapee.get(i2) );
+    swapee.set(i2, temp);
+  }
+
 
 }//end class StatPrinter
