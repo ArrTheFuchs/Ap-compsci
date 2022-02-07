@@ -65,22 +65,53 @@ public class StatPrinter
   //          _frequency.get(i) returns frequency of i in data
   //eg, for data [2,3,2,5,2,3]
   //  _frequency would be [0,0,3,2,0,1]
+
+  //Big O classification is O(n^2)
   public StatPrinter( ArrayList <Integer> data )
   {
-    /* YOUR IMPLEMENTATION HERE */
-    _frequency = new ArrayList <Integer> (max(data) + 1);
+    int iSize = max(data);
 
-  }
+    /* YOUR IMPLEMENTATION HERE */
+    _frequency = new ArrayList<Integer>(); // initialize ArrayList _frequency
+
+    // populate _frequency with 0s
+    for(int i = 0; i <= iSize; i++)
+      _frequency.add(0);
+
+    //System.out.println( "test 2: " + _frequency.size());
+
+    for(int t = 0; t < data.size(); t++){
+      int j = (data.get(t)); //determine which element of frequency to modify
+      _frequency.set(j, (int)_frequency.get(j) + 1); //modify the element
+    }
+     /*for(int i = 0; i < _frequency.size(); i++){
+       int ctr = 0;
+      for(int t = 0; t < max(data); i++){
+        if(data.get(t) == i){
+         ctr++;
+        }
+      }
+      _frequency.set(i, ctr);
+    } */
+}
 
 
   //*************** QUESTION 01 **************************
   //precond:  data.size() > 0
   //postcond: returns largest integer in data
+
+  //Big O classification is O(n)
   public Integer max( ArrayList <Integer> data )
   {
     /* YOUR IMPLEMENTATION HERE */
-      bubble(data);
-      return data.get(data.size() - 1);
+    //bubble(data);
+    //return data.get(data.size() - 1);
+
+    int maxVal = 0;
+    for(int i=0; i<data.size(); i++)
+      if(data.get(i) > maxVal) maxVal = data.get(i);
+
+    return maxVal;
   }
 
 
@@ -94,54 +125,106 @@ public class StatPrinter
   //    isLocalMode(0) -> false
   //    isLocalMode(1) -> true
   //    isLocalMode(5) -> true
+
+  //Big O classification is O(n)
   public boolean isLocalMode( int i )
   {
     /* YOUR IMPLEMENTATION HERE */
-    return true;
+    // big O complexity: O(1)
+    if(i > 0 && i < _frequency.size() - 1){
+      return (_frequency.get(i-1) < _frequency.get(i) && _frequency.get(i+1) < _frequency.get(i));
+
   }
+  return false;
+}
 
-
+  // big O complexity: O(n)
   //*************** QUESTION 04 **************************
   //postcond: returns list of modes in _frequency
-  // public ArrayList<Integer> getLocalModes()
-  // {
-  //   /* YOUR IMPLEMENTATION HERE */
-  //
-  // }
+  public ArrayList<Integer> getLocalModes()
+  {
+    /* YOUR IMPLEMENTATION HERE */
+    ArrayList modes = new  ArrayList<Integer>();
+    for ( int i = 0; i < _frequency.size(); i++) {
+         if ( isLocalMode(i) ) {
+           modes.add(_frequency.get(i));
+         }
+       }
+       return modes;
+   }
 
 
   //*************** QUESTION 05 **************************
   //precond:  longestBar > 0
-  public void printHistogram( int longestBar )
+  public void printHistogramVertical( int longestBar )
   {
     /* YOUR IMPLEMENTATION HERE */
+    int maxFreq = max(_frequency);
+    String sLine;
+    System.out.println("max: " + maxFreq + " longest: " + longestBar);
+
+    // We will print longestBar lines, from top to bottom
+    for(int i = longestBar; i>0; i--) {
+      // Form a single line
+      sLine = "";
+
+      for(int j = 0; j < _frequency.size(); j++) {
+          //System.out.println("i:" + i + " j:" + j + " freq:" + _frequency.get(j) + " >=:" + maxFreq / longestBar * i);
+          if(_frequency.get(j) >= (float)maxFreq / (float)longestBar * i)
+            sLine = sLine + "* ";
+          else
+            sLine = sLine + "  ";
+      }
+
+      // Print formed line #if ()
+      System.out.println(sLine);
+    }
+
+    // Print the bottom lines
+    sLine = "";
+    for(int j = 0; j < _frequency.size(); j++)
+      sLine = sLine + j + " ";
+
+    System.out.println(sLine);
   }
 
-//Bubble sort
-  public static void bubble( ArrayList<Integer> data )
+  public void printHistogramHorisontal( int longestBar )
   {
-    //for each pass do this
-    //we loop size of array - 1 times
-    for( int i = 0; i < data.size()-1; i++){
-      //for each comparison do this
-      //we loop less and less for each pass
-      for( int x = data.size()-1; x > i; x--){
-        Integer left = data.get(x-1);
-        Integer right = data.get(x);
-        //check right is greater than or = to left
-        if( right.compareTo(left) >= 0 ){
-          continue;
-        }
-        swap(data, x, x-1);
+    /* YOUR IMPLEMENTATION HERE */
+    int maxFreq = max(_frequency);
+    String sLine;
+    System.out.println("max: " + maxFreq + " longest: " + longestBar);
+
+    for(int j = 0; j < _frequency.size(); j++) {
+      // Number column
+      sLine = j + ": ";
+
+      // Compose sting of * proportional to longest
+      for(int i = 0; i < longestBar; i++) {
+        if(_frequency.get(j) > (float)maxFreq / (float)longestBar * i)
+          sLine = sLine + "*";
+        else
+          break;
       }
+
+      // Print formed line #if ()
+      System.out.println(sLine);
     }
   }
 
-  public static void swap(ArrayList swapee, int i1, int i2){
-    Object temp = swapee.get(i1);
-    swapee.set(i1, swapee.get(i2) );
-    swapee.set(i2, temp);
+/*
+    int j = max(_frequency);
+    int dot_per_num = longestBar / j;
+    String asteriks = ""
+//creates the amount of asteriks needed per frequency
+    for(int i = 0; i < dots_per_num + 1; i++){
+      asteriks = asteriks + "*";
+    }
+
+     for(int a = 0; a  < _frequency.size(); a++){
+       for(int b = 0; b < _frequency.get(a); b++)
+      System.out.println(a + ": " + ("*" *(dot_per_num * _frequency.get(a))));
+    }
   }
-
-
+*/
 }//end class StatPrinter

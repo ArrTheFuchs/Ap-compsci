@@ -36,11 +36,15 @@ public class StatPrinterApp
     al1.add(4);
     al1.add(4);
 
+    System.out.println( "sp1 is about to START... " );
     StatPrinter sp1 = new StatPrinter( al1 );
 
-
-      System.out.println( "sp1 testing... " );
-      sp1.max( al1 );
+    System.out.println( "sp1 print HISTOGRAM... " );
+    sp1.printHistogramHorisontal(6);
+    System.out.println("");
+//    sp1.printHistogram(3);
+//    System.out.println("");
+      //sp1.max( al1 );
       /*
       sp1.printHistogram( 50 );
     */
@@ -56,8 +60,8 @@ public class StatPrinterApp
     al2.add(2);
     al2.add(3);
 
+    System.out.println( "sp2 is about to START... " );
     StatPrinter sp2 = new StatPrinter( al2 );
-
     System.out.println( "sp2 testing: " );
     System.out.println( "al2 max: " + sp1.max(al2) );
     System.out.println( "local modes: " );
@@ -65,7 +69,8 @@ public class StatPrinterApp
     System.out.println( i + " is local mode?\t" + sp2.isLocalMode(i) );
     }
     System.out.println( "histogram:" );
-    sp2.printHistogram( 50 );
+    sp2.printHistogramHorisontal( 50 );
+    System.out.println("");
   }
 
 }//end StatPrinterApp
