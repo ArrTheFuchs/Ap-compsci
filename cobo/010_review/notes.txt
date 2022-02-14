@@ -1,0 +1,82 @@
+Team Stack Underflow (Nada Hameed + Ray, Ariel Fuchs + Skelly duckler, Russell Goychayev + Duck)
+
+Activity 1:
+
+1.
+  a. sentimentVal (String word)
+  b. yes, it requires a String parameter - if you pass different type of parameter, there is an error message, because other methods used require String as well
+  c. yes, the return type is double
+
+2.
+  sentimentVal("orange") => 0.32
+  sentimentVal("cat") => -1.86
+  sentimentVal("outlandish") => 0.0
+3.
+  a. it would compile because the output is a double, and the input is a String
+  b. it would not compile because the output is a String and the input is a double - it should be double and String
+  c. it would not compile because there are two inputs, whereas sentimentVal requires one String input
+
+Activity 2:
+
+4.
+  totalSentiment looks through the file, and searches for spaces. Once it finds a space through iteration, it will register the previous letters as a word, and will find the sentimentVal for that word. It will then remove that word from the inputted String, and continue iterating through, summing up the sentimentVals in the process. Once there is nothing left in the String input, the totalSentiment is returned.
+
+5.
+  a. the ratings don't really make sense because the totalSentiment value has to be really high in order to get a good star rating.
+  b. in totalSentiment, we could perhaps multiply the totalSentiment value by some factor r, like 5 or 10.
+
+6.
+  the logical flaw in his code is that no matter what the totalSentiment value is, if it's less than 15, be it 0 or 14, the star rating will be 4. He was working backwards in his code, so to fix it, just order the numbers in the if statements from least to greatest.
+
+Activity 3:
+
+3.
+  indexOf gets the index of the first instance of a certain character. substring takes a piece of a String, either between two indices or from one index to the end. With these methods, one can split a String based on the character they want to split it at. It's necessary to add " " in order to locate where to split/stop.
+
+5.
+  static methods do not require an instance of a class, whereas non-static methods do. for example: in a non-static method, create Object x, and then perform x.add(num 1, num 2), whereas for a static method, it'd be add(num 1, num 2).
+
+6.
+  to create either a fake positive or fake negative review, we could check the sentimentVal of each adjective.
+
+Activity 4:
+
+1.
+  a negative review could be generated to try and worsen the reputation of your competitor.
+
+2.
+  a positive review could be generated to support your own business, or let others know that you like their food/products without having to spend time on it.
+
+3.
+  to create a more positive or more negative review, take the sentimentVal of each adjective and if it's greater than zero, choose a positive adjective, and if it's less than or equal to zero, choose a negative adjective. perhaps it'd be helpful to include a list of noncommittal adjectives in case an adjective in the original review isn't in cleanSentiment.
+
+5.
+  the result is the original word without the first character.
+
+6.
+  it's necessary to remove the "*" so that the while loop will eventually stop, because if it's never removed, the while loop will go on and on.
+
+7.
+  to create a super positive review, one could create a new list of super positive adjectives, and then compare with a certain sentimentVal. Another option is including two positive adjectives in the place of one.
+
+Activity 5:
+
+1.
+  word scrambling is pretty interesting - it could be pretty useful if we wanted to make a game.
+
+2.
+  first, we started with a simple idea: word shuffling. Then we thought about what else we could add just to be a bit more representative of the idea. It's still very simple, but it's interesting to see the statistics.
+
+3.
+  public static String wordScramble(String word) --> this takes in a String, which is the word to be shuffled. The return type is also a String, the shuffled version of the input. It's a static method for ease of use - this way, we don't have to create a shuffle or something.
+
+4.
+  word = word.substring(0, x - 1) + word.substring(x); --> this alters the original word so that when shuffling, the same letter isn't used in the shuffling, unless it occurs more than once in the word.
+  double percent = (100.0*simcntr/word.length()); --> this compares the shuffled word and the original word to see how similar they are
+
+5.
+  if (shuffled.substring(i, i+1).equals(word.substring(i, i+1))){ --> this checks to see whether a character in the original word is in the same position in the shuffled word
+  
+6.
+  while (word.length() > 0){ --> the method iterates through and adds to the shuffled word, but of course it can't go past the original word's length.
+  for (int i = 0; i < word.length(); i++){ --> this is the alternative to using a while loop, but a while loop seems more convenient.
