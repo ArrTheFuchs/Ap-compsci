@@ -1,9 +1,8 @@
-
-// Ariel Fuchs, Nada Hameed, Rusell Goyakevich
-// APCS pd0
+// TNPG: Stack Underflow: Nada Hameed + Ray, Ariel Fuchs + Skelly Duckler, Russell Goychayev + Duck
+// APCS pd7
 // HW68 -- recursively probing for a closed cycle
 // 2022-02-28m
-// time spent:  hrs
+// time spent:  1 hr + class time
 
 /***
  * SKELETON
@@ -16,16 +15,23 @@
  * $ java KnightTour [N]
  *
  * ALGO
- *
+ *  - move a knight on a chessboard until all the squares are filled
+    -> if you can't move the knight further while there are empty squares, go back one move, and try another possibility
+    -> repeat the last two steps until the board has been entirely traversed by the knight once/sq
  * DISCO
+    - use Math.random() to have a random starting position
+    - big O of n^2
  *
  * QCC
+    - pushing farther not complete
+    - why does it take more time sometimes even though the computer follows the same pattern?
+    - larger boards are very taxing to the computer!
  *
  * Mean execution times for boards of size n*n:
- * n=5   __s    across __ executions
- * n=6   __s    across __ executions
- * n=7   __s    across __ executions
- * n=8   __s    across __ executions
+ * n=5   3.97s    across 4 executions (4.03, 3.75, 4.13, 3.97)
+ * n=6   30.67s    across 1 executions
+ * n=7   1142.03s    across 1 executions
+ * n=8   1496.31s    across 1 executions
  *
  * POSIX PROTIP: to measure execution time from BASH, use time program:
  * $ time java KnightTour 5
@@ -65,8 +71,8 @@ public class KnightTour
 
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     //for random starting location, use lines below:
-    //int startX = //YOUR MATH CONSTRUCT FOR GENERATING A RANDOM LEGAL X VALUE
-    //int startY = //YOUR MATH CONSTRUCT FOR GENERATING A RANDOM LEGAL X VALUE
+    //int startX = (int)(Math.random()*n);
+    //int startY = (int)(Math.random()*n);
     //tf.findTour( startX, startY, 1 );   // 1 or 0 ?
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -93,19 +99,23 @@ class TourFinder
     _sideLength = n;
 
     //init 2D array to represent square board with moat
-    _board = [n+4][n+4];
+    _board = new int[n+4][n+4];
 
     //SETUP BOARD --  0 for unvisited cell
     //               -1 for cell in moat
     //---------------------------------------------------------
-    for(int i = 0; i < 3; i++){
-        for(int a = 0; a < _board[i].length; a++){
-            
-        }
-
+    for(int i = 0; i < _board.length; i++){
+      _board[0][i] = -1;
+      _board[1][i] = -1;
+      _board[n + 2][i] = -1;
+      _board[n + 3][i] = -1;
+      _board[i][0] = -1;
+      _board[i][1] = -1;
+      _board[i][n + 2] = -1;
+      _board[i][n + 3] = -1;
     }
     //---------------------------------------------------------
-s
+
   }//end constructor
 
 
@@ -156,16 +166,16 @@ s
     //delay(50); //slow it down enough to be followable
 
     //if a tour has been completed, stop animation
-    if ( ??? ) System.exit(0);
+    if ( _solved ) System.exit(0);
 
     //primary base case: tour completed
-    if ( ??? ) {
-      ???
+    if ( moves == (_board.length-4)*(_board.length-4)+1) {
+      _solved = true;
       System.out.println( this ); //refresh screen
       return;
     }
     //other base case: stepped off board or onto visited cell
-    if ( ??? ) {
+    if ( _board[x][y] != 0 ) {
       return;
     }
     //otherwise, mark current location
@@ -173,7 +183,7 @@ s
     else {
 
       //mark current cell with current move number
-      _board[x][y] = ???
+      _board[x][y] = moves;
 
       System.out.println( this ); //refresh screen
 
@@ -181,18 +191,25 @@ s
 
       /******************************************
        * Recursively try to "solve" (find a tour) from
-       * each of knight's available moves.
+       * each of knight's available moves. (abc- priority, 8 possibilities)
        *     . e . d .
        *     f . . . c
        *     . . @ . .
        *     g . . . b
        *     . h . a .
       ******************************************/
-      ???
+      findTour(x + 1, y + 2, moves + 1); //a
+      findTour(x + 2, y + 1, moves + 1); //b
+      findTour(x + 2, y - 1, moves + 1); //c
+      findTour(x + 1, y - 2, moves + 1); //d
+      findTour(x - 1, y - 2, moves + 1); //e
+      findTour(x - 2, y - 1, moves + 1); //f
+      findTour(x - 2, y + 1, moves + 1); //g
+      findTour(x - 1, y + 2, moves + 1); //h
 
       //If made it this far, path did not lead to tour, so back up...
       // (Overwrite number at this cell with a 0.)
-        ???
+        _board[x][y] = 0;
 
       System.out.println( this ); //refresh screen
     }
