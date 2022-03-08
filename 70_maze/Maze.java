@@ -1,4 +1,4 @@
-// KdawgL -- Kosta Dubovskiy and Lindsay Phung
+// KdawgL -- Kosta Dubovskiy, Lindsay Phung, and Ariel Fuchs
 // APCS pd7
 // HW70 -- AThinkers of the Corn / maze solving (blind, depth-first)
 // 2022-03-07
