@@ -35,16 +35,16 @@ public class LList implements List // interface def must be in this dir
     public boolean add(String newVal) {
 
         LLNode temp = _head;
-        if (temp.getCargo() == null) {
+
+            for(int i = 0; i < _head.size; i++){
+                if (temp.getCargo() == null) {
             temp.setCargo(newVal);
-        } else {
-            while (temp != null) {
+            return true
+            size ++;
+        } 
                 temp = temp.getNext();
+
             }
-
-            temp.setNext(new LLNode(newVal, null));
-
-        }
         _size++;
         return true;
     }
@@ -73,8 +73,7 @@ public class LList implements List // interface def must be in this dir
 
     // return number of nodes in list
     public int size() {
-        return _size;
-        /*
+        //return _size;
          * int ctr = 0;
          * LLNode temp = _head;
          * while (temp.getNext() != null) {
@@ -82,6 +81,7 @@ public class LList implements List // interface def must be in this dir
          * ctr++;
          * }
          * return ctr;
+        /*
          */
     }
 
