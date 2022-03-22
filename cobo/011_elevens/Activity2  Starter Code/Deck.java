@@ -30,14 +30,18 @@ public class Deck {
 	 * @param values is an array containing all of the card point values.
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
+		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		cards = new ArrayList<Card>();
-		for (int i = 0; i<ranks.length;i++) {
-			Card temp = new Card(ranks[i], suits[i], values[i]);
-			System.out.println(temp);
-			cards.add(temp);
+		for (int ind = 0; ind < ranks.length; ind ++) {
+			for(String suit : suits) {
+				Card newCard = new Card(ranks[ind], suit, values[ind]);
+				cards.add(newCard);
+			}
 		}
 		size = cards.size();
+		shuffle();
 	}
+
 
 
 	/**
@@ -45,7 +49,11 @@ public class Deck {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-		return (size <= 0);
+		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if( size == 0 ) {
+			return true;
+		}
+		return false;
 	}
 
 	/**
@@ -53,6 +61,7 @@ public class Deck {
 	 * @return the number of undealt cards in this deck.
 	 */
 	public int size() {
+		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		return size;
 	}
 
@@ -70,12 +79,13 @@ public class Deck {
 	 *         previously dealt.
 	 */
 	public Card deal() {
-		try {
-			size = size-1;
-			return cards.get(size);
-		} catch( Exception e ) {
+		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		if(size == 0) {
 			return null;
 		}
+		size--;
+		Card dealCard = cards.get(size);
+		return dealCard;
 	}
 
 	/**

@@ -30,7 +30,7 @@ public class Shuffler {
 
 		System.out.println("Results of " + SHUFFLE_COUNT +
 								 " consecutive efficient selection shuffles:");
-		int[] values2 = {1, 2, 3, 4};
+		int[] values2 = {0, 1, 2, 3};
 		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
 			selectionShuffle(values2);
 			System.out.print("  " + j + ":");
@@ -39,7 +39,6 @@ public class Shuffler {
 			}
 			System.out.println();
 		}
-
 		System.out.println();
 	}
 
@@ -51,16 +50,19 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void perfectShuffle(int[] values) {
-		int[] shuffled = new int[values.length];
-		int k = 0;
-		for (int j = 0; j <(values.length/2); j++) {
-			shuffled[k] = values[j];
-			k = k+2;
-		}
-		k = 1;
-		for (int j = values.length/2; j<values.length; j++) {
-			shuffled[k] = values[j];
-			k = k+2;
+		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int i = 0;
+		int j = values.length / 2;
+		int counter = 0;
+		int[] second = new int[values.length];
+		for (int k = 0; k < values.length; k++) {
+			if ( k % 2 == 0) {
+				second[k] = values[i];
+				i++;
+			} else {
+				second[k] = values[j];
+				j++;
+			}
 		}
 	}
 
@@ -76,14 +78,16 @@ public class Shuffler {
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
 	public static void selectionShuffle(int[] values) {
-		int[] shuffled = new int[values.length];
-		for (int k =values.length-1; k >0;k--) {
-			int r = (int) (Math.random() * (k+1));
-			System.out.print(r);
-			int temp = values[r];
-			values[r] = values[k];
-			values[k] = temp;
+		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		int[] values2 = new int[values.length];
+		int len = values.length;
+		for(int i = 0; i < values.length; i ++) {
+			if ( values[i] != 0 ) {
+				if ( values2[len * Math.random()] == 0 ) {
+					values2[i] = values[i];
+					values[i] = 0;
+				}
+			}
 		}
-
 	}
 }

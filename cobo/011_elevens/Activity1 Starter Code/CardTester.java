@@ -8,16 +8,36 @@ public class CardTester {
 	 *	@param args is not used.
 	 */
 	public static void main(String[] args) {
-		Card yassification = new Card("jack", "hearts", 11);
-		Card goodbye = new Card("7", "diamonds", 7);
-		Card yehaw = new Card("4", "clubs", 4);
-		Card slaying = new Card("jack", "hearts", 11);
+		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+		Card KDubs = new Card("2", "Spades", 3);
+		Card JOthman = new Card("3", "Clubs", 2);
+		Card Fuuuuuchs = new Card("4", "Hearts", 1);
 
-		System.out.println(goodbye.suit());
-		System.out.println(yehaw.pointValue());
-		System.out.println(goodbye);
-		System.out.println(yassification);
-		System.out.println(yassification.matches(slaying));
-		System.out.println(yassification.matches(goodbye));
+		Card KDubsClone = new Card("2", "Spades", 3);
+
+		System.out.println(KDubs);
+		System.out.println(KDubs.rank());
+		System.out.println(KDubs.suit());
+		System.out.println(KDubs.pointValue());
+		System.out.println("~~~~~~~~~~~~KDubs ^ ~~~~~~~~~~~~~~~");
+
+		System.out.println(JOthman);
+		System.out.println(JOthman.rank());
+		System.out.println(JOthman.suit());
+		System.out.println(JOthman.pointValue());
+		System.out.println("~~~~~~~~~~~~JOthman ^ ~~~~~~~~~~~~~~~");
+
+		System.out.println(Fuuuuuchs);
+		System.out.println(Fuuuuuchs.rank());
+		System.out.println(Fuuuuuchs.suit());
+		System.out.println(Fuuuuuchs.pointValue());
+		System.out.println("~~~~~~~~~~~~Fuuuuuchs ^ ~~~~~~~~~~~~~~~");
+
+		System.out.println("Testing matches with KDubs, KDubsClone");
+		System.out.println(KDubs.matches(KDubsClone));
+
+		System.out.println("Testing matches with JOthman, Fuuuuuchs");
+		System.out.println(JOthman.matches(Fuuuuuchs));
+
 	}
 }
