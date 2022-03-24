@@ -1,17 +1,17 @@
 /***
- * class DLLNode v1
+ * class DLLNode<T> v1
  * Implements a node, for use in lists and other container classes.
  * Stores a T  as cargo.
  **/
 
-public class DLLNode
+public class DLLNode<T>
 {
   private T  _cargo;    //cargo may only be of type T
-  private DLLNode _nextNode, _prevNode; //pointers to next, prev DLLNodes
+  private DLLNode<T> _nextNode, _prevNode; //pointers to next, prev DLLNode<T>s
 
 
   // constructor -- initializes instance vars
-  public DLLNode( T  value, DLLNode prev, DLLNode next )
+  public DLLNode( T  value, DLLNode<T> prev, DLLNode<T> next )
   {
     _cargo = value;
     _nextNode = next;
@@ -22,9 +22,9 @@ public class DLLNode
   //--------------v  ACCESSORS  v--------------
   public T  getCargo() { return _cargo; }
 
-  public DLLNode getNext() { return _nextNode; }
+  public DLLNode<T> getNext() { return _nextNode; }
 
-  public DLLNode getPrev() { return _prevNode; }
+  public DLLNode<T> getPrev() { return _prevNode; }
   //--------------^  ACCESSORS  ^--------------
 
 
@@ -36,16 +36,16 @@ public class DLLNode
     return foo;
   }
 
-  public DLLNode setNext( DLLNode newNext )
+  public DLLNode<T> setNext( DLLNode<T> newNext )
   {
-    DLLNode foo = getNext();
+    DLLNode<T> foo = getNext();
     _nextNode = newNext;
     return foo;
   }
 
-  public DLLNode setPrev( DLLNode newPrev )
+  public DLLNode<T> setPrev( DLLNode<T> newPrev )
   {
-    DLLNode foo = getPrev();
+    DLLNode<T> foo = getPrev();
     _prevNode = newPrev;
     return foo;
   }
@@ -63,15 +63,15 @@ public class DLLNode
 
  /*********************
     //Create a node
-    DLLNode first = new DLLNode( "cat", null );
+    DLLNode<T> first = new DLLNode<T>( "cat", null );
 
     //Create a new node after the first
-    first.setNext( new DLLNode( "dog", null ) );
+    first.setNext( new DLLNode<T>( "dog", null ) );
 
     //Create a third node after the second
-    first.getNext().setNext( new DLLNode( "cow", null ) );
+    first.getNext().setNext( new DLLNode<T>( "cow", null ) );
 
-    DLLNode temp = first;
+    DLLNode<T> temp = first;
     while( temp != null ) {
       System.out.println( temp );
       temp = temp.getNext();
@@ -79,4 +79,4 @@ public class DLLNode
    ***********************/
   }//end main
 
-}//end class DLLNode
+}//end class DLLNode<T>

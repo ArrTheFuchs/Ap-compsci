@@ -10,11 +10,39 @@ public class ListTester
 {
   public static void main( String[] args )
   {
+//different testss with charectars 
+    List wu = new LList();
 
-    //instantiate... var type List, obj type LList
+     System.out.println(wu);
+     wu.add('W');
+
+      System.out.println(wu);
+      wu.add('H');
+
+      System.out.println(wu);
+      wu.add('Y');
+
+      System.out.println(wu);
+
+//Test with ints
+  /*  //instantiate... var type List, obj type LList
     List wu = new LList();
 
     System.out.println(wu);
+    wu.add(3);
+
+    System.out.println(wu);
+    wu.add(2);
+
+    System.out.println(wu);
+    wu.add(1);
+
+    System.out.println(wu);
+
+//tests with strings
+  /*  List wu = new LList();
+
+   System.out.println(wu);
     wu.add("RZA");
 
     System.out.println(wu);
@@ -40,7 +68,8 @@ public class ListTester
 
     System.out.println(wu);
 
-    for( int i=0; i<7; i++ ) {
+
+  /*  for( int i=0; i<7; i++ ) {
       int n = (int)( wu.size() * Math.random() );
       String imposter = "@";
       System.out.println("adding imposter at index " + n + "...");
