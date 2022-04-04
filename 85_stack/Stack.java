@@ -10,10 +10,10 @@ public interface Stack<PANCAKE>
     public boolean isEmpty();
 
     //Return top element of stack without popping it.
-    public PANCAKE peekTop();
+    public String peekTop();
 
     //Pop and return top element of stack.
-    public PANCAKE pop();
+    public String pop();
 
     //Push an element onto top of this stack.
     public void push( PANCAKE x );

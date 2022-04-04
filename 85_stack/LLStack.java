@@ -1,15 +1,17 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 
-public class ALStack<PANCAKE> implements Stack<PANCAKE>
+public class LLStack<PANCAKE> implements Stack<PANCAKE>
 {
-  private ArrayList<PANCAKE> _stack;
+  private LinkedList<PANCAKE> _stack;
   private int _stackSize;
 
 
   //constructor
-  public ALStack( int initCapacity )
+  public LLStack()
   {
-    _stack = new ArrayList<PANCAKE> (initCapacity);
+    //we aren't limited by initial capacity because in a linked list,
+    //you can add as many nodes as you want
+    _stack = new LinkedList<PANCAKE>();
     _stackSize = 0;
   }// O(1) because it just allocates new memory for _stack
 
@@ -18,7 +20,7 @@ public class ALStack<PANCAKE> implements Stack<PANCAKE>
   public void push( PANCAKE s )
   {
     if (isFull() == true) return;
-    _stack.set(_stackSize, s);
+    _stack.add(_stackSize, s);
     _stackSize++;
     return;
   }// O(1) because the algo does not iterate through the stack. it just adds a
