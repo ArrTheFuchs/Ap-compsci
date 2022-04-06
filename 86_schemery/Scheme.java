@@ -1,4 +1,6 @@
 /***
+<<<<<<< HEAD
+=======
 Hot Cake: Ariel Fuchs + Skelly Duckler, Nada Hameed + Ray, Samantha Hua + Poppy
 APCS PD07
 HW86 -- What a Racket
@@ -14,10 +16,19 @@ QCC:
 - why did we not have to implement functionality for divide?
 - we had a lot of errors regarding converting types
 
+>>>>>>> 487d50d34d74359eb5bc15f4f7b2f13b16f995d0
  * class Scheme
  * Simulates a rudimentary Scheme interpreter
  *
  * ALGORITHM for EVALUATING A SCHEME EXPRESSION:
+<<<<<<< HEAD
+ *   1. Steal underpants.
+ *   2. ...
+ *   5. Profit!
+ *
+ * STACK OF CHOICE: ____ by ____
+ * b/c ...
+=======
  *   1. We remove the whitespaces from the input
  *   2. We parse through the input from the right to the left
  *   3. If the chracter is not a ( then we simply add it onto the stack. This is
@@ -28,13 +39,18 @@ QCC:
  *
  * STACK OF CHOICE: ALStack by personal repo
  * b/c it was easiest for us to visualize
+>>>>>>> 487d50d34d74359eb5bc15f4f7b2f13b16f995d0
  **/
 
 public class Scheme
 {
   /***
    * precond:  Assumes expr is a valid Scheme (prefix) expression,
+<<<<<<< HEAD
+   *           with whitespace separating all operators, parens, and 
+=======
    *           with whitespace separating all operators, parens, and
+>>>>>>> 487d50d34d74359eb5bc15f4f7b2f13b16f995d0
    *           integer operands.
    * postcond: Returns the simplified value of the expression, as a String
    * eg,
@@ -43,6 +59,11 @@ public class Scheme
    **/
   public static String evaluate( String expr )
   {
+<<<<<<< HEAD
+
+  }//end evaluate()
+
+=======
     //remove whitespace from input
     String[] noWhitespace = expr.split(" ");
 
@@ -107,6 +128,7 @@ public class Scheme
   //   for (int i = 0; i < ALStack.size; i++) {
   //     total /= a.pop();
   //   }
+>>>>>>> 487d50d34d74359eb5bc15f4f7b2f13b16f995d0
 
   /***
    * precond:  Assumes top of input stack is a number.
@@ -114,6 +136,26 @@ public class Scheme
    *           Returns the result of operating on sequence of operands.
    *           Ops: + is 1, - is 2, * is 3
    **/
+<<<<<<< HEAD
+  public static String unload( int op, Stack<String> numbers )
+  {
+
+  }//end unload()
+
+
+  /*
+  //optional check-to-see-if-its-a-number helper fxn:
+  public static boolean isNumber( String s ) {
+  try {
+  Integer.parseInt(s);
+  return true;
+  }
+  catch( NumberFormatException e ) {
+  return false;
+  }
+  }
+  */
+=======
   // public static String unload( int op, Stack<String> numbers )
   // {
   //
@@ -131,12 +173,17 @@ public class Scheme
       return false;
     }
   }
+>>>>>>> 487d50d34d74359eb5bc15f4f7b2f13b16f995d0
 
 
   //main method for testing
   public static void main( String[] args )
   {
 
+<<<<<<< HEAD
+    /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+=======
+>>>>>>> 487d50d34d74359eb5bc15f4f7b2f13b16f995d0
       String zoo1 = "( + 4 3 )";
       System.out.println(zoo1);
       System.out.println("zoo1 eval'd: " + evaluate(zoo1) );
@@ -156,7 +203,10 @@ public class Scheme
       System.out.println(zoo4);
       System.out.println("zoo4 eval'd: " + evaluate(zoo4) );
       //...-4
+<<<<<<< HEAD
+=======
       /*v~~~~~~~~~~~~~~MAKE MORE~~~~~~~~~~~~~~v
+>>>>>>> 487d50d34d74359eb5bc15f4f7b2f13b16f995d0
       ^~~~~~~~~~~~~~~~AWESOME~~~~~~~~~~~~~~~^*/
   }//main()
 
