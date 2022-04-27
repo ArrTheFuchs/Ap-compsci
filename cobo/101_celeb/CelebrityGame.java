@@ -15,7 +15,7 @@ public class CelebrityGame
 	 /**
 	 * The GUI frame for the Celebrity game.
 	 */
-
+	 private CelebrityFrame gameWindow;
 	/**
 	 * The ArrayList of Celebrity values that make up the game
 	 */
@@ -26,7 +26,8 @@ public class CelebrityGame
 	 */
 	public CelebrityGame()
 	{
-		celebGameList = new ArrayList<Celebrity>
+		//celebGameList = new ArrayList<Celebrity>
+		gameWindow = new CelebrityFrame(this);
 		// gameCelebrity =
 	}
 
@@ -35,7 +36,8 @@ public class CelebrityGame
 	 */
 	public void prepareGame()
 	{
-
+		celebGameList = new ArrayList<Celebrity>();
+		gameWindow.replaceScreen("START");
 	}
 
 	/**
@@ -61,7 +63,8 @@ public class CelebrityGame
 	 */
 	public void play()
 	{
-
+		gameCelebrity = celebGameList.get(0);
+		celebGameList.remove(0);
 	}
 
 	/**
@@ -100,7 +103,7 @@ public class CelebrityGame
 	 */
 	public boolean validateClue(String clue, String type)
 	{
-		return false;
+		return gameCelebrity.getClue().length() > 10;
 	}
 
 	/**
@@ -110,7 +113,7 @@ public class CelebrityGame
 	 */
 	public int getCelebrityGameSize()
 	{
-		return 0;
+		return celebGameList.size();
 	}
 
 	/**
@@ -121,7 +124,7 @@ public class CelebrityGame
 	 */
 	public String sendClue()
 	{
-		return null;
+		return gameCelebrity.getClue();
 	}
 
 	/**
@@ -132,6 +135,6 @@ public class CelebrityGame
 	 */
 	public String sendAnswer()
 	{
-		return null;
+		return  gameCelebrity.getAnswer();
 	}
 }
