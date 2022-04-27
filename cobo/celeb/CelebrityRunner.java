@@ -3,6 +3,8 @@
  * @author cody.henrichsen
  *
  */
+import java.util.Scanner;
+
 public class CelebrityRunner
 {
 	/**
@@ -11,6 +13,6 @@ public class CelebrityRunner
 	 */
 	public static void main(String [] args)
 	{
-
+		CelebrityGame app = new CelebrityGame();
 	}
 }

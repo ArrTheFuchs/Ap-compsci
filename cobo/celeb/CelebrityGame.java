@@ -15,7 +15,7 @@ public class CelebrityGame
 	 /**
 	 * The GUI frame for the Celebrity game.
 	 */
-	 private CelebrityFrame gameWindow;
+	 // private CelebrityFrame gameWindow;
 	/**
 	 * The ArrayList of Celebrity values that make up the game
 	 */
@@ -26,9 +26,8 @@ public class CelebrityGame
 	 */
 	public CelebrityGame()
 	{
-		//celebGameList = new ArrayList<Celebrity>
+		celebGameList = new ArrayList<Celebrity>();
 		gameWindow = new CelebrityFrame(this);
-		// gameCelebrity =
 	}
 
 	/**
@@ -50,10 +49,18 @@ public class CelebrityGame
 	 */
 	public boolean processGuess(String guess)
 	{
-		if (guess.equals(gameCelebrity.getAnswer())){
-			return true;
+		boolean matches = false;
+
+		if (guess.trim().equalsIgnoreCase(gameCelebrity.getAnswer()))
+		{
+			matches = true;
+			celebGameList.remove(0);
+			if (celebGameList.size() > 0)
+			{
+				gameCelebrity = celebGameList.get(0);
+			}
 		}
-		return false;
+			return matches;
 	}
 
 	/**
@@ -63,8 +70,15 @@ public class CelebrityGame
 	 */
 	public void play()
 	{
-		gameCelebrity = celebGameList.get(0);
-		celebGameList.remove(0);
+		if (celebGameList != null && celebGameList.size() > 0L )
+		{
+			this.gameCelebrity = celebGameList.get(0);
+			gameWindow.replaceScreen("GAME");
+	}
+	// 	if (celebGameList.size() != 0) {
+	// 		return;
+	// 	}
+	// 	gameCelebrity = celebGameList.get(0);
 	}
 
 	/**
@@ -79,8 +93,21 @@ public class CelebrityGame
 	 */
 	public void addCelebrity(String name, String guess, String type)
 	{
-		Celebrity temp = new Celebrity(name, guess);
-		celebGameList.add(temp);
+		// Celebrity temp = new Celebrity(name, guess);
+		// celebGameList.add(temp);
+		/*
+* HHow would you add other subclasses to this CelebrityGame?
+*/
+		Celebrity currentCelebrity;
+		if (type.equals("Literature"))
+		{
+			currentCelebrity = new LiteratureCelebritSy(name, guess);
+		}
+		else //Add an else if here
+		{
+			currentCelebrity = new Celebrity(name, guess);
+		}
+		this.celebGameList.add(currentCelebrity);
 	}
 
 	/**
@@ -90,8 +117,7 @@ public class CelebrityGame
 	 */
 	public boolean validateCelebrity(String name)
 	{
-
-		return( name.length() >= 4);
+		return (name.length() >= 4);
 	}
 
 	/**
@@ -103,7 +129,7 @@ public class CelebrityGame
 	 */
 	public boolean validateClue(String clue, String type)
 	{
-		return gameCelebrity.getClue().length() > 10;
+		return clue.length() >= 10;
 	}
 
 	/**
