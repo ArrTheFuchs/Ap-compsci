@@ -24,7 +24,11 @@ public class BST
    */
   BST()
   {
+<<<<<<< HEAD
     _root = null;
+=======
+    /*** YOUR IMPLEMENTATION HERE ***/
+>>>>>>> d684376a7502d053c2f9dc609112fd163a78d3ea
   }
 
 
@@ -35,6 +39,7 @@ public class BST
   public void insert( int newVal )
   {
     TreeNode newNode = new TreeNode( newVal );
+<<<<<<< HEAD
     if (_root == null){
       _root = newNode;
     }
@@ -58,6 +63,14 @@ public class BST
       }
       insert(stRoot.getRight(), newNode);
     }
+=======
+    /*** YOUR IMPLEMENTATION HERE ***/
+  }
+  //recursive helper for insert(int)
+  public void insert( TreeNode stRoot, TreeNode newNode )
+  {
+    /*** YOUR IMPLEMENTATION HERE ***/
+>>>>>>> d684376a7502d053c2f9dc609112fd163a78d3ea
   }//end insert()
 
 
@@ -76,6 +89,7 @@ public class BST
   }
   public void preOrderTrav( TreeNode currNode )
   {
+<<<<<<< HEAD
     System.out.print(currNode.getValue());
     if (currNode.getLeft() != null) {
       preOrderTrav(currNode.getLeft());
@@ -84,11 +98,15 @@ public class BST
       preOrderTrav(currNode.getRight());
     }
     return;
+=======
+    /*** YOUR IMPLEMENTATION HERE ***/
+>>>>>>> d684376a7502d053c2f9dc609112fd163a78d3ea
   }
 
   //recurse left, process root, recurse right
   public void inOrderTrav()
   {
+<<<<<<< HEAD
     if (_root.getLeft() != null) {
       inOrderTrav( _root.getLeft() );
     }
@@ -107,11 +125,19 @@ public class BST
       preOrderTrav(currNode.getRight());
     }
     return;
+=======
+    /*** YOUR IMPLEMENTATION HERE ***/
+  }
+  public void inOrderTrav( TreeNode currNode )
+  {
+    /*** YOUR IMPLEMENTATION HERE ***/
+>>>>>>> d684376a7502d053c2f9dc609112fd163a78d3ea
   }
 
   //recurse left, recurse right, process root
   public void postOrderTrav()
   {
+<<<<<<< HEAD
     if (_root.getLeft() != null) {
       postOrderTrav( _root.getLeft() );
     }
@@ -130,6 +156,13 @@ public class BST
     }
     System.out.print(currNode.getValue());
     return;
+=======
+    /*** YOUR IMPLEMENTATION HERE ***/
+  }
+  public void postOrderTrav( TreeNode currNode )
+  {
+    /*** YOUR IMPLEMENTATION HERE ***/
+>>>>>>> d684376a7502d053c2f9dc609112fd163a78d3ea
   }
 
   //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
@@ -139,6 +172,10 @@ public class BST
   //main method for testing
   public static void main( String[] args )
   {
+<<<<<<< HEAD
+=======
+    /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>> d684376a7502d053c2f9dc609112fd163a78d3ea
 
       BST arbol = new BST();
 
@@ -151,6 +188,7 @@ public class BST
       arbol.insert( 1 );
       arbol.insert( 3 );
 
+<<<<<<< HEAD
 
       System.out.println( "\n-----------------------------");
       System.out.println( "pre-order traversal:" ); //421356
@@ -166,6 +204,21 @@ public class BST
 
       System.out.println( "\n-----------------------------");
       /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
+=======
+      System.out.println( "\n-----------------------------");
+      System.out.println( "pre-order traversal:" );
+      arbol.preOrderTrav();
+
+      System.out.println( "\n-----------------------------");
+      System.out.println( "in-order traversal:" );
+      arbol.inOrderTrav();
+
+      System.out.println( "\n-----------------------------");
+      System.out.println( "post-order traversal:" );
+      arbol.postOrderTrav();
+
+      System.out.println( "\n-----------------------------");
+>>>>>>> d684376a7502d053c2f9dc609112fd163a78d3ea
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }
 

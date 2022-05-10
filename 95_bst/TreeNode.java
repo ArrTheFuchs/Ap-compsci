@@ -43,7 +43,11 @@ public class TreeNode
    */
   TreeNode getLeft()
   {
+<<<<<<< HEAD
     return _lt;
+=======
+    /*** YOUR IMPLEMENTATION HERE ***/
+>>>>>>> d684376a7502d053c2f9dc609112fd163a78d3ea
   }
 
 
@@ -52,7 +56,11 @@ public class TreeNode
    */
   TreeNode getRight()
   {
+<<<<<<< HEAD
     return _rt;
+=======
+    /*** YOUR IMPLEMENTATION HERE ***/
+>>>>>>> d684376a7502d053c2f9dc609112fd163a78d3ea
   }
 
 
@@ -61,7 +69,11 @@ public class TreeNode
    */
   int getValue()
   {
+<<<<<<< HEAD
     return _cargo;
+=======
+    /*** YOUR IMPLEMENTATION HERE ***/
+>>>>>>> d684376a7502d053c2f9dc609112fd163a78d3ea
   }
 
 
@@ -70,7 +82,11 @@ public class TreeNode
    */
   void setLeft( TreeNode theNewLeft )
   {
+<<<<<<< HEAD
     _lt = theNewLeft;
+=======
+    /*** YOUR IMPLEMENTATION HERE ***/
+>>>>>>> d684376a7502d053c2f9dc609112fd163a78d3ea
   }
 
 
@@ -79,7 +95,11 @@ public class TreeNode
    */
   void setRight( TreeNode theNewRight )
   {
+<<<<<<< HEAD
     _rt = theNewRight;
+=======
+    /*** YOUR IMPLEMENTATION HERE ***/
+>>>>>>> d684376a7502d053c2f9dc609112fd163a78d3ea
   }
 
 
@@ -88,7 +108,11 @@ public class TreeNode
    */
   void setValue( int theNewValue )
   {
+<<<<<<< HEAD
     _cargo = theNewValue;
+=======
+    /*** YOUR IMPLEMENTATION HERE ***/
+>>>>>>> d684376a7502d053c2f9dc609112fd163a78d3ea
   }
 
 }//end class
