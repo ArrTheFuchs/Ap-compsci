@@ -132,37 +132,89 @@ public class BST
     return;
   }
 
-   /*****************************************************
-     * TreeNode search(int)
-     * returns pointer to node containing target,
-     * or null if target not found
-     *****************************************************/
-    TreeNode search( int target )
-    {
-    	/*** YOUR IMPLEMENTATION HERE ***/
+ /*****************************************************
+   * TreeNode search(int)
+   * returns pointer to node containing target,
+   * or null if target not found
+   *****************************************************/
+  public TreeNode search( int target )
+  {
+    TreeNode temp = searchR(_root, target);
+    return temp;
+  }
+
+  TreeNode searchR(TreeNode currNode, int target) {
+    if (currNode.getValue() == target) {
+      return currNode;
+    }
+    else if (currNode.getValue() > target) {
+      if (currNode.getLeft() != null) {
+        return searchR(currNode.getLeft(), target);
+      }
+      else {
+        return null;
+      }
+    }
+    else if (currNode.getValue() < target) {
+      if (currNode.getRight() != null) {
+        return searchR(currNode.getRight(), target);
+      }
+      else {
+        return null;
+      }
+    }
+    return currNode;
+  }
+
+  /*****************************************************
+   * int height()
+   * returns height of this tree (length of longest leaf-to-root path)
+   * eg: a 1-node tree has height 1
+   *****************************************************/
+  public int height()
+  {
+    int a = heightL(_root);
+    int b = heightR(_root);
+    if (a > b) {
+      return a;
+    }
+    else {
+      return b;
+    }
+  }
+
+  public int heightL(TreeNode currNode) {
+    if (currNode.getLeft() != null) {
+      return 1 + heightL(currNode.getLeft());
+    }
+    return 1;
+  }
+
+  public int heightR(TreeNode currNode) {
+    if (currNode.getRight() != null) {
+      return 1 + heightR(currNode.getRight());
+    }
+    return 1;
+  }
+  /*****************************************************
+   * int numLeaves()
+   * returns number of leaves in tree
+   *****************************************************/
+  public int numLeaves()
+  {
+    return numLeavesR(_root);
+  }
+
+  public int numLeavesR(TreeNode currNode) {
+    if (currNode.getLeft() != null) {
+      return numLeavesR(currNode.getLeft());
     }
 
-
-    /*****************************************************
-     * int height()
-     * returns height of this tree (length of longest leaf-to-root path)
-     * eg: a 1-node tree has height 1
-     *****************************************************/
-    public int height()
-    {
-    	/*** YOUR IMPLEMENTATION HERE ***/
+    if (currNode.getRight() != null) {
+      return numLeavesR(currNode.getRight()) ;
     }
-
-
-    /*****************************************************
-     * int numLeaves()
-     * returns number of leaves in tree
-     *****************************************************/
-    public int numLeaves()
-    {
-    	/*** YOUR IMPLEMENTATION HERE ***/
-    }
-
+    return ctr;
+  }
 
   //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -182,6 +234,7 @@ public class BST
       arbol.insert( 6 );
       arbol.insert( 1 );
       arbol.insert( 3 );
+      arbol.insert( 7 );
 
 
       System.out.println( "\n-----------------------------");
@@ -197,10 +250,16 @@ public class BST
       arbol.postOrderTrav();
 
       System.out.println( "\n-----------------------------");
+
+      System.out.println((arbol.search(1)).getValue()); // 1
+      // System.out.println(arbol.search(10).getValue()); // null error created
+      System.out.println((arbol.search(5)).getValue()); // 5
+
+      System.out.println( "\n-----------------------------");
+
+      System.out.println(arbol.height()); // 4
       /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
   }
 
 }//end class
-
- 
