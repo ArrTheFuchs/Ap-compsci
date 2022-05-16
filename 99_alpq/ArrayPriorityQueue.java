@@ -1,81 +1,80 @@
 import java.util.ArrayList;
-public class ArrayPriorityQueue implements PriorityQueue{
 
-    private ArrayList<Integer> line;
+public class ArrayPriorityQueue implements PriorityQueue {
+  ArrayList<Integer> queueT;
+  int endIndexOfPriority;
 
-//O(1)
-    public ArrayPriorityQueue(){
-      line = new ArrayList<Integer>();
+  // O(1)
+  public ArrayPriorityQueue() {
+    queueT = new ArrayList();
+    endIndexOfPriority = 0;
+  }
+
+  // O(1)
+  public boolean checkPriority(int x) {
+    return (x < 10);
+  }
+
+  // O(1)
+  public boolean isEmpty() {
+    return (queueT.size() == 0);
+  }
+
+  // O(n) in the worst case scenario
+  public void add(int x) {
+    if (checkPriority(x) == true) {
+      queueT.add(endIndexOfPriority, x);
     }
-
-//O(n) in worst case scenario
-    public void add( int x ){
-      if(checkPriority(x)){
-        line.add(0, x);
-      }
-      else{
-        line.add(x);
-      }
+    else {
+      queueT.add(x);
+    }
   }
 
-//O(1)
-    public boolean isEmpty(){
-      return (line.size() <= 0);
-  }
-//O(n)
-    public int peekMin(){
-      int currentMin = line.get(0);
-      for( int val: line){
+  // O(n)
+  public int peekMin() {
+    int currentMin = queueT.get(0);
+      for( int val: queueT){
             if( val < currentMin  ){
                 currentMin = val;
             }
 
         }
         return currentMin;
-    }
-
-//O(n)
-    public int removeMin(){
-      int index = line.indexOf(peekMin());
-      return line.remove(index);
-
   }
 
-  //Helper method
-  //checks if the value has priority.
-  //O(1)
-    public static boolean checkPriority(Integer val){
-      return (val % 3 == 0);
+  // O(n)
+  public int removeMin() {
+    int index = queueT.indexOf(peekMin());
+    if (checkPriority(queueT.get(index))) {
+      endIndexOfPriority--;
     }
+    return queueT.remove(index);
+  }
 
+  // O(n)
+  public String toString(){
+    return queueT.toString();
+  }
 
-//O(n)
-    public String toString() {
-            return line.toString();
-        }
+  public static void main(String[] args){
+    ArrayPriorityQueue a = new ArrayPriorityQueue();
+      a.add(5);
+      a.add(3);
+      a.add(14);
+      a.add(7);
+      a.add(18);
+      a.add(11);
+      System.out.println("a: "+  a);
 
+      System.out.println();
+      System.out.println("min: " + a.peekMin());
+      System.out.println("removeMin: " + a.removeMin());
+      System.out.println("min: " + a.peekMin());
+      System.out.println("removeMin: " + a.removeMin());
+      System.out.println("min: " + a.peekMin());
+      System.out.println("removeMin: " + a.removeMin());
 
-//taken from Piazza (thanks LL)
-   public static void main(String[] args){
-     ArrayPriorityQueue poo = new ArrayPriorityQueue();
-     poo.add(5);
-     poo.add(3);
-     poo.add(4);
-     poo.add(7);
-     poo.add(8);
-     poo.add(1);
-     System.out.println("poo: "+  poo);
-
-     System.out.println();
-     System.out.println("min: " + poo.peekMin());
-     System.out.println("removeMin: " + poo.removeMin());
-     System.out.println("min: " + poo.peekMin());
-     System.out.println("removeMin: " + poo.removeMin());
-     System.out.println("min: " + poo.peekMin());
-     System.out.println("removeMin: " + poo.removeMin());
-
-     System.out.println();
-     System.out.println("poo: "+  poo);
-   } //end of main method
-
-} //end of class
+      System.out.println();
+      System.out.println("a: "+  a);
+  }
+}
