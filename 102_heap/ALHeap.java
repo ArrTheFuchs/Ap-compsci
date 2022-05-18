@@ -1,3 +1,4 @@
+
 /**
 TNPG: Hot Cake - Samantha Hua, Ariel Fuchs, Nada Hameed
 APCS pd07
@@ -40,14 +41,22 @@ public class ALHeap {
    */
   public String toString() {
     return  _heap.toString();
+<<<<<<< HEAD
   }// O(n) --> traverse through the whole ArrayList to print everything out
+=======
+  }// O(?)
+>>>>>>> d0bc198551ec94e732f97ce10476e9c6487d4519
 
   /**
    * boolean isEmpty()
    * Returns true if no meaningful elements in heap, false otherwise
    */
   public boolean isEmpty() {
+<<<<<<< HEAD
     return _heap.size() == 0;
+=======
+    return _heap.size() != 0;
+>>>>>>> d0bc198551ec94e732f97ce10476e9c6487d4519
   }// O(1)
 
   /**
@@ -100,6 +109,7 @@ public class ALHeap {
    * keep going until the newly added leaf is no longer larger than its children
    */
   public Integer removeMin() {
+<<<<<<< HEAD
     if(isEmpty())
       return -1;
     // replace the root with a leaf
@@ -116,6 +126,9 @@ public class ALHeap {
       // System.out.println(leaf);
     }
     return retVal;
+=======
+    return 1;
+>>>>>>> d0bc198551ec94e732f97ce10476e9c6487d4519
   }// O(?)
 
   /**
@@ -125,6 +138,7 @@ public class ALHeap {
    * Postcondition: Tree unchanged
    */
   private int minChildPos(int pos) {
+<<<<<<< HEAD
     boolean leftChildExists = ((2 * pos) + 1) < _heap.size();
     boolean rightChildExists = ((2 * pos) + 2) < _heap.size();
 
@@ -177,6 +191,9 @@ public class ALHeap {
       return pos;
     }
     */
+=======
+    return 1;
+>>>>>>> d0bc198551ec94e732f97ce10476e9c6487d4519
   }// O(?)
 
   // ~~~~~~~~~~~~~ aux helper fxns ~~~~~~~~~~~~~~
@@ -217,29 +234,37 @@ public class ALHeap {
      pile.add(9);
      System.out.println(pile);
 
-     System.out.println("removing " + pile.removeMin() + "...");
-     System.out.println(pile);
-     System.out.println("removing " + pile.removeMin() + "...");
-     System.out.println(pile);
-     System.out.println("removing " + pile.removeMin() + "...");
-     System.out.println(pile);
-     System.out.println("removing " + pile.removeMin() + "...");
-     System.out.println(pile);
-     System.out.println("removing " + pile.removeMin() + "...");
-     System.out.println(pile);
-     System.out.println("removing " + pile.removeMin() + "...");
-     System.out.println(pile);
-     System.out.println("removing " + pile.removeMin() + "...");
-     System.out.println(pile);
-     System.out.println("removing " + pile.removeMin() + "...");
-     System.out.println(pile);
-     System.out.println("removing " + pile.removeMin() + "...");
-     System.out.println(pile);
-     System.out.println("removing " + pile.removeMin() + "...");
-     System.out.println(pile);
-     System.out.println("removing " + pile.removeMin() + "...");
-     System.out.println(pile);
+<<<<<<< HEAD
+=======
+
      /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>>>>>>> d0bc198551ec94e732f97ce10476e9c6487d4519
+     System.out.println("removing " + pile.removeMin() + "...");
+     System.out.println(pile);
+     System.out.println("removing " + pile.removeMin() + "...");
+     System.out.println(pile);
+     System.out.println("removing " + pile.removeMin() + "...");
+     System.out.println(pile);
+     System.out.println("removing " + pile.removeMin() + "...");
+     System.out.println(pile);
+     System.out.println("removing " + pile.removeMin() + "...");
+     System.out.println(pile);
+     System.out.println("removing " + pile.removeMin() + "...");
+     System.out.println(pile);
+     System.out.println("removing " + pile.removeMin() + "...");
+     System.out.println(pile);
+     System.out.println("removing " + pile.removeMin() + "...");
+     System.out.println(pile);
+     System.out.println("removing " + pile.removeMin() + "...");
+     System.out.println(pile);
+     System.out.println("removing " + pile.removeMin() + "...");
+     System.out.println(pile);
+     System.out.println("removing " + pile.removeMin() + "...");
+     System.out.println(pile);
+<<<<<<< HEAD
+     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=======
+>>>>>>> d0bc198551ec94e732f97ce10476e9c6487d4519
      * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
      */
   }// end main()
